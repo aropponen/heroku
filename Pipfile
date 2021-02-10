@@ -8,6 +8,9 @@ flask = "*"
 gunicorn = "*"
 psycopg2 = "*"
 sqlalchemy = "*"
+tqdm = "*"
+termcolor = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
