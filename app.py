@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 load_dotenv()
-
+app.config['DEBUG']=True
 
 def get_db_data():
     DATABASE_URL = os.environ['DATABASE_URL']
