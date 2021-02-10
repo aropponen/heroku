@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-DATABASE_URL = os.environ['postgres://dupswmfsimipmo:40f0b8cba142cd710ec7ba1869d173c3c144779b40afb6dd9cbec578f06c7e17@ec2-54-220-35-19.eu-west-1.compute.amazonaws.com:5432/dbula7ktp10sda']
+DATABASE_URL = os.environ['DATABASE_URL']
 
 db = create_engine(DATABASE_URL)
 
@@ -13,6 +13,12 @@ db = create_engine(DATABASE_URL)
 def index():
     results = db.execute('SELECT name FROM city')      
     return render_template('cities.html', cities=results)
+
+
+@app.route('/names')
+def names():
+    results = db.execute('SELECT name FROM names')
+    return render_template('names.html', names=results)
 
 if __name__ == '__main__':
     app.run(threaded=True, port=5000)
