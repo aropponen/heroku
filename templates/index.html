@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Alcohol licenses in Finland</title>
+    <link rel="stylesheet" href="//unpkg.com/primitive-ui/dist/css/main.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <style>
+        body {
+            margin-left:30px;
+            margin-right:30px;
+        }
+    </style>
+</head>
+<body>
+<h1>Alcohol license holding companies in Finland</h1>
+
+<table id="data" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Postcode</th>
+            <th>City</th>
+            <th>License date</th>
+            <th>Type</th>
+            <th>Business ID</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Postcode</th>
+            <th>City</th>
+            <th>License date</th>
+            <th>Type</th>
+            <th>Business ID</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+<script>
+    $(document).ready(function() {
+        $('#data').DataTable( {
+            "ajax": '/api/all',
+            responsive: true
+        } );
+    } );
+</script>
+
+</body>
+</html>
